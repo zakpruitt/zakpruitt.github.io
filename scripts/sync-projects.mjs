@@ -1,7 +1,10 @@
 // Rebuilds the projects section of index.html from `<!-- portfolio ... -->` blocks in each repo's README.
+// Set CHROME to a Chrome binary to screenshot live sites for projects without an image.
 
-import { readFile, writeFile } from "node:fs/promises";
-import { pathToFileURL } from "node:url";
+import { execFile } from "node:child_process";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { fileURLToPath, pathToFileURL } from "node:url";
+import { promisify } from "node:util";
 
 const USER = "zakpruitt";
 const PAGE = new URL("../index.html", import.meta.url);
@@ -27,18 +30,38 @@ export function parseBlock(readme) {
   return fields;
 }
 
-export function toProject(repo, fields) {
+const isUrl = (src) => /^(https?:)?\/\//.test(src);
+
+export function readmeImage(readme) {
+  for (const [, markdown, html] of readme.matchAll(/!\[[^\]]*\]\(\s*<?([^)\s>]+)|<img[^>]*\ssrc="([^"]+)"/g)) {
+    const src = markdown ?? html;
+    if (!isUrl(src)) return src;
+  }
+  return null;
+}
+
+function resolveImage(repo, src) {
+  if (!src || isUrl(src)) return src;
+  return `https://raw.githubusercontent.com/${repo.full_name}/${repo.default_branch}/${src.replace(/^\.?\//, "")}`;
+}
+
+export function toProject(repo, fields, readme = "") {
   const section = fields.section ?? "main";
   if (!SECTIONS.includes(section)) {
     throw new Error(`${repo.name}: unknown section "${section}"`);
   }
+  const live = fields.live === "none" ? null : fields.live ?? (repo.homepage || null);
+  const image = fields.image === "none" ? null : resolveImage(repo, fields.image ?? readmeImage(readme));
   return {
+    slug: repo.name.toLowerCase(),
     name: fields.name ?? repo.name,
     section,
     year: fields.year ?? repo.created_at.slice(0, 4),
     summary: fields.summary ?? repo.description ?? "",
     tags: fields.tags?.split(",").map((t) => t.trim()).filter(Boolean) ?? [],
-    live: fields.live === "none" ? null : fields.live ?? (repo.homepage || null),
+    live,
+    image,
+    screenshot: !image && fields.image !== "none" && Boolean(live),
     source: repo.html_url,
     order: Number(fields.order ?? Infinity),
   };
@@ -57,7 +80,12 @@ function card(p) {
   ].filter(Boolean);
   const tags = p.tags.map((t) => `<li>${escape(t)}</li>`).join("");
 
-  return `<article class="card${p.section === "featured" ? " featured" : ""} reveal">
+  const image = p.image
+    ? `
+  <img class="shot" src="${escape(p.image)}" alt="Screenshot of ${escape(p.name)}" loading="lazy">`
+    : "";
+
+  return `<article class="card${p.section === "featured" ? " featured" : ""} reveal">${image}
   <header class="row">
     <h3>${escape(p.name)}</h3>
     <span class="meta">${escape(p.year)}</span>
@@ -122,10 +150,33 @@ async function fetchProjects() {
   const projects = await Promise.all(repos.map(async (repo) => {
     const readme = await github(`/repos/${USER}/${repo.name}/readme`, "application/vnd.github.raw");
     if (!readme.ok) return null;
-    const fields = parseBlock(await readme.text());
-    return fields && toProject(repo, fields);
+    const text = await readme.text();
+    const fields = parseBlock(text);
+    return fields && toProject(repo, fields, text);
   }));
   return projects.filter(Boolean);
+}
+
+export async function captureScreenshots(projects, chrome) {
+  const dir = new URL("../assets/projects/", import.meta.url);
+  await mkdir(dir, { recursive: true });
+
+  await Promise.all(projects.filter((p) => p.screenshot).map(async (p) => {
+    const file = `assets/projects/${p.slug}.png`;
+    try {
+      await promisify(execFile)(chrome, [
+        "--headless=new",
+        "--hide-scrollbars",
+        "--window-size=1280,800",
+        "--virtual-time-budget=8000",
+        `--screenshot=${fileURLToPath(new URL(`${p.slug}.png`, dir))}`,
+        p.live,
+      ]);
+      p.image = file;
+    } catch (err) {
+      console.warn(`screenshot failed for ${p.name}: ${err.message}`);
+    }
+  }));
 }
 
 async function main() {
@@ -134,6 +185,7 @@ async function main() {
     console.warn("no repos have a portfolio block; leaving index.html alone");
     return;
   }
+  if (process.env.CHROME) await captureScreenshots(projects, process.env.CHROME);
 
   const page = await readFile(PAGE, "utf8");
   const updated = inject(page, render(projects));
@@ -145,7 +197,7 @@ async function main() {
   console.log(`synced ${projects.length} projects: ${projects.map((p) => p.name).join(", ")}`);
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   main().catch((err) => {
     console.error(err.message);
     process.exit(1);

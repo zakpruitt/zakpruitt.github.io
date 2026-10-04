@@ -41,7 +41,11 @@ summary: A lightweight Java client for eBay's REST APIs.
 | `summary` | repo description         |                                             |
 | `tags`    | none                     | comma-separated                             |
 | `live`    | repo homepage            | `none` hides the Live link                  |
+| `image`   | first local image in the README, else a screenshot of the live site | repo path or URL; `none` for no picture |
 | `order`   | none                     | lower numbers first; otherwise newest first |
+
+Screenshots are only taken when `CHROME` points at a Chrome binary (the workflow sets it);
+they land in `assets/projects/`, which is gitignored.
 
 The Deploy workflow runs the sync on every push, once a day, and on demand
 (Actions → Deploy → Run workflow), then publishes to Pages. To refresh

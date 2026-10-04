@@ -1,15 +1,15 @@
 /* Mint (Datejust dial) and emerald (Mega Gallade) */
 :root {
   color-scheme: light dark;
-  --bg: light-dark(#fafafa, #0f1012);
-  --surface: light-dark(#ffffff, #17181b);
-  --text: light-dark(#18181b, #ececee);
-  --muted: light-dark(#5f6168, #9d9fa6);
-  --border: light-dark(#e6e6e9, #26282c);
+  --bg: light-dark(#f8faf9, #141917);
+  --surface: light-dark(#ffffff, #1b211f);
+  --text: light-dark(#161c1a, #e9eeec);
+  --muted: light-dark(#5d6662, #9ea8a4);
+  --border: light-dark(#e3e8e6, #2a322f);
   --accent: light-dark(#0f7a55, #7fdcb4);
   --accent-strong: light-dark(#0a5c40, #a8ecce);
   --mint: light-dark(#bfe8d6, #1d4a39);
-  --mint-soft: light-dark(#ecf7f2, #15211d);
+  --mint-soft: light-dark(#e9f6f0, #1a2a24);
   --shadow: 0 1px 2px light-dark(rgb(0 0 0 / .04), transparent),
             0 8px 24px light-dark(rgb(0 0 0 / .05), transparent);
   --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -263,6 +263,7 @@ section { padding-block: 72px; }
 .card {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   padding: 20px;
   border: 1px solid var(--border);
   border-radius: 14px;
@@ -277,6 +278,17 @@ section { padding-block: 72px; }
   border-color: var(--mint);
   background: linear-gradient(135deg, var(--mint-soft), var(--surface) 60%);
 }
+.shot {
+  display: block;
+  width: calc(100% + 40px);
+  margin: -20px -20px 16px;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
+  border-bottom: 1px solid var(--border);
+}
+.featured .shot { aspect-ratio: 16 / 8; }
+
 .card p { flex: 1; margin: 10px 0 14px; color: var(--muted); font-size: .94rem; }
 .card footer { display: flex; gap: 16px; margin-top: 14px; font-size: .9rem; font-weight: 500; }
 
