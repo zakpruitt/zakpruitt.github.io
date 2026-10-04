@@ -116,7 +116,8 @@ async function github(path, accept = "application/vnd.github+json") {
 async function fetchProjects() {
   const res = await github(`/users/${USER}/repos?per_page=100&type=owner`);
   if (!res.ok) throw new Error(`listing repos failed: ${res.status}`);
-  const repos = (await res.json()).filter((r) => !r.fork && !r.private);
+  const repos = (await res.json())
+    .filter((r) => !r.fork && !r.private && r.name !== `${USER}.github.io`);
 
   const projects = await Promise.all(repos.map(async (repo) => {
     const readme = await github(`/repos/${USER}/${repo.name}/readme`, "application/vnd.github.raw");
