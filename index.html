@@ -1,428 +1,259 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<html lang="en">
 <head>
-	<title>zakpruitt.codes - 2021</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<link rel="icon" type="ico" href="images/favicon.ico"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zak Pruitt</title>
+  <meta name="description" content="Zak Pruitt, Senior Software Engineer at Mastercard. Backend Spring Boot developer on the Mastercard Settings platform.">
+  <meta property="og:title" content="Zak Pruitt">
+  <meta property="og:description" content="Senior Software Engineer at Mastercard. Backend by day, building things for my hobbies by night.">
+  <meta property="og:url" content="https://zakpruitt.github.io/">
+  <meta name="theme-color" content="#0f7a55">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="assets/style.css">
+  <script>
+    let theme;
+    try { theme = localStorage.getItem("theme"); } catch {}
+    document.documentElement.classList.add("js");
+    document.documentElement.dataset.theme =
+      theme ?? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  </script>
+  <script src="assets/main.js" defer></script>
 </head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="brand">zak<span>.</span></a>
+      <nav>
+        <a href="#experience">experience</a>
+        <a href="#projects">projects</a>
+        <a href="#contact">contact</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </div>
+  </header>
 
-<body class="is-preload">
-	<!-- Wrapper-->
-	<div id="wrapper">
-		<!-- Nav -->
-		<nav id="nav">
-			<a href="#" class="icon solid fa-home"><span>Home</span></a>
-			<a href="#work" class="icon solid fa-code"><span>Projects</span></a>
-			<a href="#resume" class="icon solid fa-user-circle"><span>Resume</span></a>
-			<a href="#contact" class="icon solid fa-envelope"><span>Contact</span></a>
-			<a href="https://linkedin.com/in/zakpruitt" target="_blank" rel="noopener noreferrer"
-				class="icon brands fa-linkedin"><span>LinkedIn</span></a>
-		</nav>
+  <main class="container">
+    <section class="hero reveal">
+      <img class="avatar" src="assets/me.svg" alt="Zak Pruitt" width="96" height="96">
+      <p class="pill">St. Louis, MO</p>
+      <h1>Hi, I'm Zak. <span class="wave" aria-hidden="true">👋</span></h1>
+      <p class="lede">
+        I'm a <strong>Senior Software Engineer at Mastercard</strong>. I build backend services for the
+        Mastercard Settings platform, and I lead my team's move to agentic AI tooling.
+      </p>
+      <p class="lede muted">
+        Outside work I build tools for my hobbies: Pokémon card collecting, World of Warcraft, and whatever
+        else has my attention that month.
+      </p>
+      <div class="links">
+        <a class="btn primary" href="https://www.linkedin.com/in/zakpruitt/" target="_blank">LinkedIn</a>
+        <a class="btn" href="https://github.com/zakpruitt" target="_blank">GitHub</a>
+        <a class="btn" href="mailto:pruittzn@gmail.com">Email</a>
+      </div>
+    </section>
 
-		<!-- Main -->
-		<div id="main">
-			<!-- Me -->
-			<article id="home" class="panel intro">
-				<header>
-					<h1>Zak Pruitt</h1>
-					<p>Software Engineer</p>
-				</header>
-				<a href="#work" class="jumplink pic">
-					<span class="arrow icon solid fa-chevron-right"><span>See my work</span></span>
-					<img src="images/me.jpg" alt="" />
-				</a>
-			</article>
+    <section id="experience">
+      <h2 class="reveal">Experience</h2>
 
-			<!-- Work -->
-			<article id="work" class="panel">
-				<!--INTRO-->
-				<header>
-					<h2>
-						Personal Projects &nbsp;<i class="icon solid fa-file-code"></i>
-					</h2>
-				</header>
-				<p>
-					This tab is a showcase for my personal projects. I hope you enjoy
-					checking them out as much as I enjoyed creating them! If anything
-					interests you, please feel free to check out my resume and contact
-					me. 😎
-				</p>
+      <div class="jobs">
+        <article class="job reveal">
+          <img class="logo" src="assets/logos/mastercard.svg" alt="">
+          <div>
+            <header class="row">
+              <h3>Mastercard</h3>
+              <span class="meta">Aug 2022 – Present</span>
+            </header>
+            <ol class="roles">
+              <li class="row"><span>Senior Software Engineer</span><span class="meta">Oct 2026 – Present</span></li>
+              <li class="row"><span>Software Engineer II</span><span class="meta">Aug 2023 – Oct 2026</span></li>
+              <li class="row"><span>Software Engineer I</span><span class="meta">Aug 2022 – Aug 2023</span></li>
+            </ol>
+            <p class="desc">
+              Backend Spring Boot developer on the <strong>Mastercard Settings</strong> platform, working on its
+              customer-facing authoring side. I design and build the services behind it, own its integration with
+              Mastercard's security infrastructure, and lead my team's adoption of agentic AI tooling.
+            </p>
+            <ul class="tags"><li>Java</li><li>Spring Boot</li><li>JPA</li><li>Jenkins</li><li>Docker</li><li>MCP</li></ul>
+          </div>
+        </article>
 
-				<hr />
-				
-				<!--MT API-->
-				<section>
-					<header>
-						<h2>
-							MT API &nbsp;<i class="icon solid fa-exchange-alt"></i>
-						</h2>
-					</header>
-					<header>
-						<div class="row">
-							<div class="col-4 col-6-medium col-12-small">
-								<img class="work-image image fit" src="images/mtapi1.png" alt="" />
-							</div>
-							<div class="col-4 col-6-medium col-12-small">
-								<img class="work-image image fit" src="images/mtapi2.png" alt="" />
-							</div>
-							<div class="col-4 col-6-medium col-12-small">
-								<img class="work-image image fit" src="images/mtapi4.png" alt="" />
-							</div>
-							<div class="col-4 col-6-medium col-12-small">
-								<img class="work-image image fit" src="images/mtapi3.png" alt="" />
-							</div>
-							<div class="col-4 col-6-medium col-12-small">
-								<img class="work-image image fit" src="images/mtapi5.png" alt="" />
-							</div>
-							<div class="col-4 col-6-medium col-12-small">
-								<img class="work-image image fit" src="images/mtapi6.png" alt="" />
-							</div>
-						</div>
-					</header>
-					<p>
-						The <b>MT (Monster Train) API</b> provides a <b>programmatic access to machine readable data</b> from Shiny Shoe's Monster Train. For example, 
-						this API enables a developer to iterate through and access hundreds of cards, artifacts, enemies, etc within seconds.
-						MT API is organized and built with <b>REST methodologies</b>. This API has predictable resource-oriented URLs, 
-						returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs. MT API is built
-						entirely with Java Spring Boot and contains features such as caching, authentication, and route monitoring.
-					</p>
-					<p>
-						Note that when viewing the live website, it may take a few seconds to spin up due to it being hosted on a free
-						heroku dyno.
-					</p>
-					<a href="https://mt-api.tech" target="_blank"
-						rel="noopener noreferrer"><input type="button" class="work-button"
-							value="View Live Website" /></a>
-					<a href="https://github.com/zakpruitt/mt-api" target="_blank"
-						rel="noopener noreferrer"><input type="button" class="work-button"
-							value="View Source Code" /></a>
-				</section>
+        <article class="job reveal">
+          <img class="logo" src="assets/logos/mastercard.svg" alt="">
+          <div>
+            <header class="row">
+              <h3>Mastercard</h3>
+              <span class="meta">May 2021 – Aug 2021</span>
+            </header>
+            <p class="role">Software Engineer Intern</p>
+            <p class="desc">Spring Boot work on the team I later joined full time: entity models, endpoints, and distributed caching.</p>
+          </div>
+        </article>
 
-				<hr />
+        <article class="job reveal">
+          <img class="logo" src="assets/logos/google.svg" alt="">
+          <div>
+            <header class="row">
+              <h3>Google</h3>
+              <span class="meta">Aug 2020 – Oct 2020</span>
+            </header>
+            <p class="role">Software Engineer Intern</p>
+            <p class="desc">Worked on YouTube's payment processing team.</p>
+          </div>
+        </article>
 
-				<!--DSV-->
-				<section>
-					<header>
-						<h2>
-							Data Structure Visualizer &nbsp;<i class="icon solid fa-project-diagram"></i>
-						</h2>
-					</header>
-					<header>
-						<div class="row">
-							<div class="col-4 col-6-medium col-12-small">
-								<img class="work-image image fit" src="images/dsv 1.PNG" alt="" />
-							</div>
-							<div class="col-4 col-6-medium col-12-small">
-								<img class="work-image image fit" src="images/dsv 2.PNG" alt="" />
-							</div>
-							<div class="col-4 col-6-medium col-12-small">
-								<img class="work-image image fit" src="images/dsv 3.PNG" alt="" />
-							</div>
-							<div class="col-4 col-6-medium col-12-small">
-								<img class="work-image image fit" src="images/dsv 4.PNG" alt="" />
-							</div>
-							<div class="col-4 col-6-medium col-12-small">
-								<img class="work-image image fit" src="images/dsv 5.PNG" alt="" />
-							</div>
-						</div>
-					</header>
-					<p>
-						This desktop application visualizes <b>Linked Lists, Stacks, Queues, Binary Search Trees, and
-							Heaps</b> using C#'s Windows Forms
-						and Microsoft Automatic Graph Layout (MSAGL). It contains method information (parameter
-						information), time complexity, an analysis of each method, and a node color legend. The
-						applications has many tools, such as a <b>modular
-							graph and the ability to save, print, and load extant graphs.</b>
-					</p>
-					<a href="https://github.com/zakpruitt/data-structure-visualizer" target="_blank"
-						rel="noopener noreferrer"><input type="button" class="work-button"
-							value="View Source Code" /></a>
-				</section>
+        <article class="job reveal">
+          <img class="logo" src="assets/logos/windstream.png" alt="">
+          <div>
+            <header class="row">
+              <h3>Windstream</h3>
+              <span class="meta">May 2020 – Aug 2020</span>
+            </header>
+            <p class="role">Software Engineer Intern</p>
+            <p class="desc">Built REST APIs and internal tools in Node.js and Python for the Network 360 team.</p>
+          </div>
+        </article>
 
-				<hr />
+        <article class="job reveal">
+          <img class="logo" src="assets/logos/usi.png" alt="">
+          <div>
+            <header class="row">
+              <h3>University of Southern Indiana</h3>
+              <span class="meta">2019 – 2022</span>
+            </header>
+            <p class="role">B.S. Computer Science · 3.95 GPA</p>
+          </div>
+        </article>
+      </div>
+    </section>
 
-				<!--SV-->
-				<section>
-					<header>
-						<h2>
-							Sorting Visualizer &nbsp;<i class="icon solid fa-sort-amount-up"></i>
-						</h2>
-					</header>
-					<header>
-						<div class="row">
-							<div class="col-4 col-6-medium col-12-small">
-								<img class="work-image image fit" src="images/sorting1.PNG" alt="" />
-							</div>
-							<div class="col-4 col-6-medium col-12-small">
-								<img class="work-image image fit" src="images/sorting2.PNG" alt="" />
-							</div>
-							<div class="col-4 col-6-medium col-12-small">
-								<img class="work-image image fit" src="images/sorting3.PNG" alt="" />
-							</div>
-						</div>
-					</header>
-					<p>
-						The <b>sorting visualizer</b> is a desktop application that allows
-						the user to populate an array with ran-dom numbers that adhere to
-						user-defined bounds. Then, the user can select their desired
-						sorting method and sort the generated array. Each sorting method
-						will finally be <b>visualized via the bars.</b> <br />The sorting
-						visualizer is built entirely within <b>Python3</b>, notably
-						utilizing its GUI library, TkInter.
-					</p>
-					<a href="https://github.com/zakpruitt/sorting-visualizer" target="_blank"
-						rel="noopener noreferrer"><input type="button" class="work-button"
-							value="View Source Code" /></a>
-				</section>
-			</article>
+    <section id="projects">
+      <h2 class="reveal">Projects</h2>
+      <p class="muted reveal">Most of these started because I needed them myself.</p>
 
-			<!-- Resume -->
-			<article id="resume" class="panel">
-				<!--SUMMARY-->
-				<header>
-					<h2>
-						Summary &nbsp;<i class="icon solid fa-book"></i>
-					</h2>
-				</header>
-				<p>
-					Hello! My name is Zak Pruitt, and I am a senior at the University of Southern Indiana pursuing a
-					Bachelors of Science in Computer Science. I will be graduating
-					in the Spring of 2022. I have a passion for solving problems with unique yet intuitive solutions
-					using cutting edge technologies in a team enviroment. I know
-					I'd be a perfect fit into any team!
-				</p>
-				<p>
-					I will be starting at Mastercard in O'Fallon, Missouri as a Software Engineer in August 2022 within
-					Mastercard's Launch program.
-				</p>
-				
-				<span id="left"><b>Contacts</b></span> <br>
-				<ul>
-					<li>Email: pruittzn@gmail.com</li>
-					<li>Phone: (618)-593-4183</li>
-					<li>GitHub: github.com/zakpruitt</li>
-					<li>Portfolio: www.zakpruitt.codes</li>
-				</ul>
-				<hr>
+      <!-- projects:start -->
+      <div class="grid">
+        <article class="card featured reveal">
+          <header class="row">
+            <h3>MichiMaker</h3>
+            <span class="meta">2026</span>
+          </header>
+          <p>Plans Pokémon card binders before you print or cut anything, including &quot;Michi method&quot; fan-art spreads that span several pockets. It has live TCGdex search that matches English and Japanese printings, drag-and-drop placement, print-accurate cut guides, and share links that keep the whole binder in a compressed URL. No server needed.</p>
+          <ul class="tags"><li>React</li><li>TypeScript</li><li>TCGdex API</li><li>GitHub Pages</li></ul>
+          <footer>
+            <a href="https://zakpruitt.github.io/michimaker/" target="_blank">Live ↗</a>
+            <a href="https://github.com/zakpruitt/michimaker" target="_blank">Source ↗</a>
+          </footer>
+        </article>
 
-				<!--EDUCATION-->
-				<header>
-					<h2>
-						Education &nbsp;<i class="icon solid fa-user-graduate"></i>
-					</h2>
-				</header>
-				
-				<span id="left"><b>Bachelors of Science in Computer Science</b></span>
-				<span id="right">Expected Graduation: Spring 2022</span>
+        <article class="card reveal">
+          <header class="row">
+            <h3>collectingwithzak</h3>
+            <span class="meta">2025</span>
+          </header>
+          <p>The platform behind my Pokémon card reselling business. It tracks inventory, grading, lots, listings, sales, and expenses, and syncs live eBay listings through JBay.</p>
+          <ul class="tags"><li>Java</li><li>Spring Boot</li><li>PostgreSQL</li><li>Docker</li></ul>
+          <footer>
+            <a href="https://github.com/zakpruitt/pbst" target="_blank">Source ↗</a>
+          </footer>
+        </article>
 
-				<br>
+        <article class="card reveal">
+          <header class="row">
+            <h3>JBay</h3>
+            <span class="meta">2026</span>
+          </header>
+          <p>A lightweight Java client for eBay's REST APIs. It handles OAuth token minting and caching, paging, and eBay's date-window limits, so you only provide a client ID and secret.</p>
+          <ul class="tags"><li>Java 21</li><li>eBay API</li><li>OAuth</li><li>Library</li></ul>
+          <footer>
+            <a href="https://github.com/zakpruitt/jbay" target="_blank">Source ↗</a>
+          </footer>
+        </article>
 
-				<span id="left"><i>University of Southern Indiana, Evansville, IN</i></span>
-				<span id="right">Cumulative GPA: 3.952</span>
+        <article class="card reveal">
+          <header class="row">
+            <h3>Funko Signings</h3>
+            <span class="meta">2026</span>
+          </header>
+          <p>Tracks which Funko Pops to get signed, by which voice actor, and at which con. Quotes are color-coded so the actor knows which pen to use for each part.</p>
+          <ul class="tags"><li>TypeScript</li><li>Vite</li><li>localStorage</li></ul>
+          <footer>
+            <a href="https://zakpruitt.github.io/funko-signings/" target="_blank">Live ↗</a>
+            <a href="https://github.com/zakpruitt/funko-signings" target="_blank">Source ↗</a>
+          </footer>
+        </article>
 
-				<br>
-				<br>
+        <article class="card reveal">
+          <header class="row">
+            <h3>Sanity Capped Emotes</h3>
+            <span class="meta">2026</span>
+          </header>
+          <p>My guild's World of Warcraft emote pack. Members upload emotes through a web app, and GitHub Actions builds and publishes each new release.</p>
+          <ul class="tags"><li>Lua</li><li>Java</li><li>GitHub Actions</li></ul>
+          <footer>
+            <a href="https://github.com/zakpruitt/TwitchEmotes_SanityCapped" target="_blank">Source ↗</a>
+          </footer>
+        </article>
+      </div>
 
-				<span id="left"><b>Relevant Coursework</b></span> <br>
-				<ul>
-					<li>Advanced Object-Oriented Programming (Honors) </li>
-					<li>Discrete Structures </li>
-					<li>Analysis of Algorithms and Data Structures (Honors) </li>
-					<li>Programming for Enterprise Websites </li>
-					<li>Microcomputer Engineering </li>
-				</ul>
+      <h3 class="subhead reveal">More projects</h3>
+      <ul class="more reveal">
+        <li>
+          <header class="row">
+            <a href="https://github.com/zakpruitt/MLGPowerInfusion" target="_blank">MLG Power Infusion</a>
+            <span class="meta">2026</span>
+          </header>
+          <p>A World of Warcraft addon that plays an MLG air horn when you get Power Infusion.</p>
+        </li>
+        <li>
+          <header class="row">
+            <a href="https://github.com/zakpruitt/drip-bot" target="_blank">Drip Bot</a>
+            <span class="meta">2023</span>
+          </header>
+          <p>Discord bot that analyzes World of Warcraft gear and performance data to split guild loot fairly.</p>
+        </li>
+        <li>
+          <header class="row">
+            <a href="https://github.com/zakpruitt/mt-api" target="_blank">MT API</a>
+            <span class="meta">2022</span>
+          </header>
+          <p>Spring Boot REST API with Monster Train game data, serving 400+ calls a day to community tools.</p>
+        </li>
+        <li>
+          <header class="row">
+            <a href="https://github.com/zakpruitt/data-structure-visualizer" target="_blank">Data Structure Visualizer</a>
+            <span class="meta">College</span>
+          </header>
+          <p>C# WinForms app that draws linked lists, stacks, queues, trees, and heaps.</p>
+        </li>
+      </ul>
+      <!-- projects:end -->
+    </section>
 
-				<p>
-					I attended university in Evansville, Indiana at the University of Southern Indiana. There, I primarily studied fundamental computer science 
-					topics, using C# as the primary median/tool, along with making many fun memories and friends! 😊
-				</p>
+    <section id="contact" class="contact reveal">
+      <h2>Contact</h2>
+      <p class="muted">
+        I'm happy to talk about backend architecture, rolling out AI tooling on a real team, or the Pokémon
+        cards you're trying to sell. Email is the best way to reach me.
+      </p>
+      <a class="btn primary big" href="mailto:pruittzn@gmail.com">pruittzn@gmail.com</a>
+    </section>
+  </main>
 
-				<hr>
-
-				<!--WORK EXPERIENCE-->
-				<header>
-					<h2>
-						Professional Experience &nbsp;<i class="icon solid fa-user-tie"></i>
-					</h2>
-				</header>
-				
-				<span id="left"><b>Software Development Engineer I</b></span>
-				<span id="right">August 2022 - Present</span>
-
-				<br>
-
-				<span id="left">Mastercard, O'Fallon, MO</span>
-				
-				<br>
-				<br>
-
-				<p>
-					Returing to Mastercard as a full-time engineer in August 2022.
-				</p>
-
-				<span id="left"><b>Crowning Achievements at Mastercard</b></span> <br>
-				<ul>
-					<li>Coming soon!</li>
-				</ul>
-
-				<hr width="75%" style="margin: auto;">
-
-				<!--MC-->
-				<span id="left"><b>Software Development Engineering Intern</b></span>
-				<span id="right">June 2021 - August 2021</span>
-
-				<br>
-
-				<span id="left">Mastercard, O'Fallon, MO</span>
-				
-				<br>
-				<br>
-
-				<p>
-					At Mastercard, I worked as a Software Development Engineering Intern on the SCM team. SCM is a team
-					laser-focused on the modernization effort for the antequated Member Parameter System (MPS) systems.
-					SCM is transitioning MPS's systems from Cobal and .NET to Java's Spring Boot. SCM and MPS deal with
-					passing in the proper parameters for a transaction's process.
-				</p>
-
-				<span id="left"><b>Crowning Achievements at Mastercard</b></span> <br>
-				<ul>
-					<li>Implemented dynamic and distributed caching systems with Spring Boot</li>
-					<li>Integrated HashiCorp Vault into Mastercard applications with Spring Boot</li>
-					<li>Modernized Mastercard's Simulator Suite website using AngularJS with 7 fellow interns</li>
-					<li>Created a payment model that functions in space, which won among 38 groups of 5 interns</li>
-				</ul>
-
-				<hr width="75%" style="margin: auto;">
-				
-				<!--WINDSTREAM-->
-				<span id="left"><b>Software Engineering Intern</b></span>
-				<span id="right">June 2020 - August 2020</span>
-
-				<br>
-
-				<span id="left">Windstream, Evansville, IN</span>
-				
-				<br>
-				<br>
-
-				<p>
-					Windstream was my first internship ever - right out of my freshman year! At Windstream, I was placed on the Network 360 team.
-					Network 360 is an internal application focused on expediting Windstream business needs, such as national circuit managment and
-					inventory automation. 
-				</p>
-
-				<span id="left"><b>Crowning Achievements at Windstream</b></span> <br>
-				<ul>
-					<li>Developed REST APIs with Node.js and Python3</li>
-					<li>Engineered a web application with Express.js, MongoDB, and Docker</li>
-					<li>Created an adjacency graph sorting analyzer for network and circuitry distances with Python3</li>
-					<li>Analyzed data retrieved through writing Oracle SQL queries</li>
-
-				</ul>
-
-				<hr width="75%" style="margin: auto;">
-
-				<!--TUTOR-->
-				<span id="left"><b>Private Tutor</b></span>
-				<span id="right">January 2020 - Present</span>
-
-				<br>
-
-				<span id="left">Zak's Tutoring Business, Evansville, IN</span>
-				
-				<br>
-				<br>
-
-				<p>
-					During my second semester at USI, I founded my own, private tutoring business. There, I provided
-					homework help, test preperation, and I held additional classes that taught software engineering principles. Currently,
-					I have 16 regular tutees - 13 of which are attending USI while the other 3 attend other colleges.
-				</p>
-
-				<span id="left"><b>Crowning Achievements at Zak's Tutoring Business</b></span> <br>
-				<ul>
-					<li>Tutored core programming-based classes, such as Intro to OOP and Advanced OOP</li>
-					<li>Tutored front-end programming-based classes, such as Intermediate Website Development</li>
-					<li>Tutored math and logic-based classes, such as Discrete Structures and Digital Logic</li>
-					<li>Tutored theory-based classes, such as Analysis of Data Structures and Algorithms</li>
-				</ul>
-
-				<hr>
-
-					<!--SKILLS-->
-					<header>
-						<h2>
-							Skills &nbsp;<i class="icon solid fa-list-ul"></i>
-						</h2>
-					</header>
-					
-					<p>To get an extensive list at all my skills, please take a look at my LinkedIn! I will try to highlight
-						some skills here, though. 😉
-					</p>
-	
-					<span id="left"><b>Notable Skills</b></span> <br>
-					<ul>
-						<li>Back-End Programming Languages: Java, C#, and Python3</li>
-						<li>Front-End: HTML5, CSS3, and Javascript</li>
-						<li>Databases: PostgreSQL and MongoDB</li>
-						<li>Deployment: Docker and Heroku</li>
-						<li>Industry Techniques: Agile development and version control with Git</li>
-						<li>Frameworks: Spring Boot, Entity, and Flask</li>
-						<li>Other than that, I like to think of myself as an excellent team player, communicator, and problem solver!</li>
-					</ul>
-			</article>
-
-			<!-- Contact -->
-			<article id="contact" class="panel">
-				<header>
-					<h2>Contact Me</h2>
-				</header>
-				<form id="contactForm" name="sentMessage" action="https://formspree.io/xpzykvww"
-					enctype="multipart/form-data" method="POST">
-					<div>
-						<div class="row">
-							<div class="col-6 col-12-medium">
-								<input type="text" name="name" placeholder="Name" />
-							</div>
-							<div class="col-6 col-12-medium">
-								<input type="text" name="email" placeholder="Email" />
-							</div>
-							<div class="col-12">
-								<input type="text" name="subject" placeholder="Subject" />
-							</div>
-							<div class="col-12">
-								<textarea name="message" placeholder="Message" rows="6"></textarea>
-							</div>
-							<div class="col-12">
-								<input type="submit" value="Send Message" />
-							</div>
-						</div>
-					</div>
-				</form>
-			</article>
-		</div>
-
-		<!-- Footer -->
-		<div id="footer">
-			<ul class="copyright">
-				<li>&copy; Zak Pruitt.</li>
-			</ul>
-		</div>
-	</div>
-
-	<!-- Scripts -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/mo-js/0.288.2/mo.min.js"
-		integrity="sha512-/rH/MTr+peRDH0xWbbfUgzdLUu8FRdQ24CXdNiDHHcdR7QyYFL3lob2hHtieIKBJsJcWtF0S2bhdcubsZkXKxw=="
-		crossorigin="anonymous"></script>
-	<script src="https://kit.fontawesome.com/42ef109a00.js" crossorigin="anonymous"></script>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/main.js"></script>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© <span id="year">2026</span> Zak Pruitt</span>
+      <span class="footer-links">
+        <a href="https://github.com/zakpruitt" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/zakpruitt/" target="_blank">LinkedIn</a>
+      </span>
+    </div>
+  </footer>
 </body>
-
 </html>
