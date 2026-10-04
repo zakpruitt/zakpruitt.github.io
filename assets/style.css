@@ -1,17 +1,17 @@
 /* Mint (Datejust dial) and emerald (Mega Gallade) */
 :root {
   color-scheme: light dark;
-  --bg: light-dark(#fbfdfc, #0c1311);
-  --surface: light-dark(#ffffff, #121b18);
-  --text: light-dark(#14211c, #e4efe9);
-  --muted: light-dark(#5b6b64, #93a69d);
-  --border: light-dark(#e2ebe7, #1f2c27);
+  --bg: light-dark(#fafafa, #0f1012);
+  --surface: light-dark(#ffffff, #17181b);
+  --text: light-dark(#18181b, #ececee);
+  --muted: light-dark(#5f6168, #9d9fa6);
+  --border: light-dark(#e6e6e9, #26282c);
   --accent: light-dark(#0f7a55, #7fdcb4);
   --accent-strong: light-dark(#0a5c40, #a8ecce);
   --mint: light-dark(#bfe8d6, #1d4a39);
-  --mint-soft: light-dark(#e8f6ef, #13241e);
-  --shadow: 0 1px 2px light-dark(rgb(15 50 35 / .04), transparent),
-            0 8px 24px light-dark(rgb(15 50 35 / .06), transparent);
+  --mint-soft: light-dark(#ecf7f2, #15211d);
+  --shadow: 0 1px 2px light-dark(rgb(0 0 0 / .04), transparent),
+            0 8px 24px light-dark(rgb(0 0 0 / .05), transparent);
   --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "JetBrains Mono", ui-monospace, monospace;
   --width: 720px;
@@ -85,9 +85,9 @@ strong { font-weight: 600; }
 
 .brand {
   margin-right: auto;
-  font-size: 1.15rem;
-  font-weight: 700;
-  letter-spacing: -.02em;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: .06em;
   color: var(--text);
 }
 .brand span { color: var(--accent); }
